@@ -20,10 +20,12 @@ jobs:
           mkdir skeleton
           cd skeleton
           composer create-project flarum/flarum . --stability=beta
+          pwd
 
       - name: Install and Run NGINX
         run: |
           sudo apt-get install nginx
+          mv ../nginx.conf /etc/nginx/nginx.conf
           sudo systemctl start nginx
           curl http://localhost
           ls /etc/nginx
