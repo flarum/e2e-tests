@@ -20,24 +20,20 @@ jobs:
           sudo apt-get install composer
           mkdir skeleton
           cd skeleton
-          sudo chown -R www-data:www-data .
-          sudo runuser -l www-data -c 'composer create-project flarum/flarum . --stability=beta'
+          composer create-project flarum/flarum . --stability=beta
+          sudo chown www-data:www-data .
+          sudo chown -R www-data:www-data public
+          sudo chown -R www-data:www-data storage
 
       - name: Install and Run NGINX
         run: |
           mkdir nginx
           sudo apt-get install nginx php-fpm
           sudo service php7.4-fpm start
-          sudo systemctl status php7.4-fpm.service
-          grep "listen =" /etc/php/7.4/fpm/pool.d/www.conf
           sudo mv nginx.conf /etc/nginx/nginx.conf
-          echo BREAKPOINT 1
           sudo systemctl start nginx
-          echo BREAKPOINT 2
           sudo nginx -s reload
-          echo BREAKPOINT 3
           sudo service nginx restart
-          echo BREAKPOINT 4
 
           curl http://localhost
           cat /home/runner/work/cypress-e2e/cypress-e2e/nginx/error.log
