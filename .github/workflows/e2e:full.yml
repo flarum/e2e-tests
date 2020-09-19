@@ -46,6 +46,9 @@ jobs:
 
       - name: Install Flarum (run migrations, add config.php)
         run: |
+          ls -la skeleton
+          ls -la skeleton/public
+          ls -la skeleton/storage
           sudo chown www-data:www-data skeleton/
           sudo chown -R www-data:www-data skeleton/public
           sudo chown -R www-data:www-data skeleton/storage
@@ -54,3 +57,5 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v1
+        with:
+          config-file: cypress-full.json

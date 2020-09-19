@@ -44,3 +44,5 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v1
+        with:
+          config-file: cypress-install.json
