@@ -36,7 +36,7 @@ jobs:
           echo BREAKPOINT 4
 
           curl http://localhost
-          cat /etc/nginx/nginx.conf
+          cat /home/runner/work/cypress-e2e/cypress-e2e/nginx/error.log
 
 
       - name: Create MySQL Database
