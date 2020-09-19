@@ -21,10 +21,13 @@ jobs:
           cd skeleton
           composer create-project flarum/flarum . --stability=beta
           pwd
+          ls
 
       - name: Install and Run NGINX
         run: |
           sudo apt-get install nginx
+          pwd
+          ls
           mv ../nginx.conf /etc/nginx/nginx.conf
           sudo systemctl start nginx
           curl http://localhost
