@@ -20,7 +20,8 @@ jobs:
           sudo apt-get install composer
           mkdir skeleton
           cd skeleton
-          composer create-project flarum/flarum . --stability=beta
+          sudo chown -R www-data:www-data .
+          sudo runuser -l www-data -c 'composer create-project flarum/flarum . --stability=beta'
 
       - name: Install and Run NGINX
         run: |
