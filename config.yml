@@ -3,7 +3,7 @@ debug: false
 baseUrl: http://localhost
 databaseConfiguration:
   driver: mysql
-  host: 127.0.0.1
+  host: localhost
   database: flarum_test
   username: root
   password: root
