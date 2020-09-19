@@ -27,7 +27,11 @@ jobs:
           mkdir nginx
           sudo apt-get install nginx
           sudo mv nginx.conf /etc/nginx/nginx.conf
+          curl http://localhost
+          cat /etc/nginx/nginx.conf
           sudo systemctl start nginx
+          curl http://localhost
+          cat /etc/nginx/nginx.conf
           nginx -s reload
           curl http://localhost
           cat /etc/nginx/nginx.conf
