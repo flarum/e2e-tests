@@ -26,6 +26,8 @@ jobs:
           sudo apt-get install nginx
           sudo systemctl start nginx
           curl http://localhost
+          ls /etc/nginx
+          cat /etc/nginx/nginx.conf
 
 
       - name: Create MySQL Database
