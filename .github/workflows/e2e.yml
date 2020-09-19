@@ -24,7 +24,7 @@ jobs:
       - name: Install and Run NGINX
         run: |
           sudo apt-get install nginx
-          mv nginx.conf /etc/nginx/nginx.conf
+          sudo mv nginx.conf /etc/nginx/nginx.conf
           sudo systemctl start nginx
           curl http://localhost
           cat /etc/nginx/nginx.conf
