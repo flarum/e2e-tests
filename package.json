@@ -1,0 +1,23 @@
+{
+  "name": "flarum-cypress-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^5.2.0"
+  },
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/askvortsov1/cypress-e2e.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/askvortsov1/cypress-e2e/issues"
+  },
+  "homepage": "https://github.com/askvortsov1/cypress-e2e#readme"
+}
