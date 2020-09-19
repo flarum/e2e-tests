@@ -32,7 +32,7 @@ jobs:
           sudo systemctl start nginx
           curl http://localhost
           cat /etc/nginx/nginx.conf
-          nginx -s reload
+          sudo nginx -s reload
           curl http://localhost
           cat /etc/nginx/nginx.conf
 
