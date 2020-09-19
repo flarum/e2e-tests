@@ -15,10 +15,10 @@ jobs:
 
       - name: Set up skeleton
         run: |
-          sudo apt-get install composer
-          mkdir skeleton
+          git clone https://github.com/flarum/flarum.git skeleton
+          mv composer.json skeleton/composer.json
           cd skeleton
-          composer create-project flarum/flarum . --stability=beta
+          composer install
           sudo chown www-data:www-data .
           sudo chown -R www-data:www-data public
           sudo chown -R www-data:www-data storage
@@ -32,9 +32,6 @@ jobs:
           sudo systemctl start nginx
           sudo nginx -s reload
           sudo service nginx restart
-
-          curl http://localhost
-          cat /home/runner/work/cypress-e2e/cypress-e2e/nginx/error.log
 
 
       - name: Create MySQL Database
