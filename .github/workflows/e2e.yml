@@ -25,10 +25,11 @@ jobs:
       - name: Install and Run NGINX
         run: |
           mkdir nginx
-          sudo apt-get install nginx
+          sudo apt-get install nginx php-fpm
           sudo mv nginx.conf /etc/nginx/nginx.conf
           echo BREAKPOINT 1
           sudo systemctl start nginx
+          sudo systemctl start php-fpm
           echo BREAKPOINT 2
           sudo nginx -s reload
           echo BREAKPOINT 3
