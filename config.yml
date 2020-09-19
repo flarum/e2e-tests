@@ -10,9 +10,9 @@ databaseConfiguration:
   prefix: ''
   port: 13306
 adminUser:
-  username: <FLARUM_ADMIN_USER>
-  password: <FLARUM_ADMIN_PASS>
-  password_confirmation: <FLARUM_ADMIN_PASS>
-  email: <FLARUM_ADMIN_MAIL>
+  username: admin
+  password: secret
+  password_confirmation: secret
+  email: admin@flarum.email
 settings:
-  forum_title: <FLARUM_TITLE>
+  forum_title: Flarum E2E
