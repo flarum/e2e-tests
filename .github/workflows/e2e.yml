@@ -29,7 +29,6 @@ jobs:
           sudo mv nginx.conf /etc/nginx/nginx.conf
           echo BREAKPOINT 1
           sudo systemctl start nginx
-          sudo systemctl start php-fpm
           echo BREAKPOINT 2
           sudo nginx -s reload
           echo BREAKPOINT 3
