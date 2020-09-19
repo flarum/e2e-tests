@@ -26,6 +26,8 @@ jobs:
         run: |
           mkdir nginx
           sudo apt-get install nginx php-fpm
+          sudo systemctl status php7-fpm.service
+          sudo systemctl status php-fpm.service
           sudo mv nginx.conf /etc/nginx/nginx.conf
           echo BREAKPOINT 1
           sudo systemctl start nginx
