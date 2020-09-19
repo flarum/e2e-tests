@@ -1,0 +1,18 @@
+
+debug: false
+baseUrl: http://localhost
+databaseConfiguration:
+  driver: mysql
+  host: 127.0.0.1
+  database: flarum_test
+  username: root
+  password: root
+  prefix: ''
+  port: 13306
+adminUser:
+  username: <FLARUM_ADMIN_USER>
+  password: <FLARUM_ADMIN_PASS>
+  password_confirmation: <FLARUM_ADMIN_PASS>
+  email: <FLARUM_ADMIN_MAIL>
+settings:
+  forum_title: <FLARUM_TITLE>

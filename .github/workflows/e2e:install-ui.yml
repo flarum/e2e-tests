@@ -1,0 +1,46 @@
+name: "Cypress E2E: Installation GUI"
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mariadb
+        ports:
+          - 13306:3306
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Set up skeleton
+        run: |
+          sudo apt-get install composer
+          mkdir skeleton
+          cd skeleton
+          composer create-project flarum/flarum . --stability=beta
+          sudo chown www-data:www-data .
+          sudo chown -R www-data:www-data public
+          sudo chown -R www-data:www-data storage
+
+      - name: Install and Run NGINX
+        run: |
+          mkdir nginx
+          sudo apt-get install nginx php-fpm
+          sudo service php7.4-fpm start
+          sudo mv nginx.conf /etc/nginx/nginx.conf
+          sudo systemctl start nginx
+          sudo nginx -s reload
+          sudo service nginx restart
+
+          curl http://localhost
+          cat /home/runner/work/cypress-e2e/cypress-e2e/nginx/error.log
+
+
+      - name: Create MySQL Database
+        run: |
+          sudo systemctl start mysql
+          mysql -uroot -proot -e 'CREATE DATABASE flarum_test;' --port 13306
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v1

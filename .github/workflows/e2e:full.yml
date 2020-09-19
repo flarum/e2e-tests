@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: "Cypress E2E: Full System"
 on: [push]
 jobs:
   cypress-run:
@@ -43,6 +43,10 @@ jobs:
         run: |
           sudo systemctl start mysql
           mysql -uroot -proot -e 'CREATE DATABASE flarum_test;' --port 13306
+
+      - name: Install Flarum (run migrations, add config.php)
+        run: |
+          php skeleton/flarum install --file=config.yml
 
       - name: Cypress run
         uses: cypress-io/github-action@v1
