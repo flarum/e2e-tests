@@ -32,7 +32,7 @@ jobs:
           echo BREAKPOINT 2
           sudo nginx -s reload
           echo BREAKPOINT 3
-          sudo service restart nginx
+          sudo service nginx restart
           echo BREAKPOINT 4
 
           curl http://localhost
