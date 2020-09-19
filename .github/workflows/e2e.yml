@@ -27,12 +27,14 @@ jobs:
           mkdir nginx
           sudo apt-get install nginx
           sudo mv nginx.conf /etc/nginx/nginx.conf
-          curl http://localhost
-          cat /etc/nginx/nginx.conf
+          echo BREAKPOINT 1
           sudo systemctl start nginx
-          curl http://localhost
-          cat /etc/nginx/nginx.conf
+          echo BREAKPOINT 2
           sudo nginx -s reload
+          echo BREAKPOINT 3
+          sudo service restart nginx
+          echo BREAKPOINT 4
+
           curl http://localhost
           cat /etc/nginx/nginx.conf
 
