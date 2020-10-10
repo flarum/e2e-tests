@@ -38,8 +38,13 @@ jobs:
         run: |
           sudo systemctl start mysql
           mysql -uroot -proot -e 'CREATE DATABASE flarum_test;' --port 13306
-
+      
+      
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          config-file: cypress-install.json
+          config-file: cypress-full.json
+          record: true
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
