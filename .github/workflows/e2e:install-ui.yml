@@ -43,7 +43,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          config-file: cypress-full.json
+          config-file: cypress-install.json
           record: true
         env:
           # pass the Dashboard record key as an environment variable
