@@ -1,5 +1,6 @@
 {
     "baseUrl": "http://localhost",
+    "projectId": "ngzhq1",
     "fixturesFolder": "cypress-install/fixtures",
     "integrationFolder": "cypress-install/integration",
     "screenshotsFolder": "cypress-install/screenshots",
